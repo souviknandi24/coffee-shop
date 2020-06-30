@@ -1,0 +1,60 @@
+<div class="orders-container">
+  <div class="orders-completed">
+    <h4>Completed Orders</h4>
+    <hr>
+    <div class="orders-completed-list orders-list">
+      <div class="no-orders" *ngIf="!coffeeShopService?.orders?.completed?.length; else completedOrdersList">
+        <i>No orders completed.</i>
+      </div>
+      <ng-template #completedOrdersList>
+        <app-order-card *ngFor="let order of coffeeShopService?.orders?.completed.slice().reverse()" [order]="order"
+          [queueStatus]="QueueStatus.COMPLETED"></app-order-card>
+      </ng-template>
+    </div>
+  </div>
+  <div class="orders-processing">
+    <h4>Orders Processing</h4>
+    <hr>
+    <div class="orders-processing-list orders-list">
+      <div class="no-orders" *ngIf="!coffeeShopService?.orders?.processing?.length; else processingOrdersList">
+        <i>No orders processing.</i>
+      </div>
+      <ng-template #processingOrdersList>
+        <app-order-card *ngFor="let order of coffeeShopService?.orders?.processing" [order]="order"
+          [queueStatus]="QueueStatus.PROCESSING"></app-order-card>
+      </ng-template>
+    </div>
+  </div>
+  <div class="orders-inqueue">
+    <h4>Orders In Queue</h4>
+    <hr>
+    <div class="orders-inqueue-list orders-list">
+      <div class="no-orders" *ngIf="!coffeeShopService?.orders?.inqueue?.length; else inqueueOrdersList">
+        <i>No orders in queue.</i>
+      </div>
+      <ng-template #inqueueOrdersList>
+        <app-order-card *ngFor="let order of coffeeShopService?.orders?.inqueue" [order]="order"
+          [queueStatus]="QueueStatus.INQUEUE"></app-order-card>
+      </ng-template>
+    </div>
+  </div>
+  <div class="add-order">
+    <h4>Place an order</h4>
+    <hr>
+    <!-- <form> -->
+    <div class="form-group">
+      <label for="beverageOptionSelect">Choose Beverage</label>
+      <select class="beverage-select" id="beverageOptionSelect" (change)="changeSelectedBeverage($event)" [value]="
+        selectedBeverage">
+        <option [value]="null">None</option>
+        <ng-container *ngFor="let beverageName of beveragesAvailable">
+          <option [value]="beverageName" *ngIf="isBeverageMakingPossible(beverageName)">
+            {{ beverageName.replace('_', ' ').toUpperCase() }}
+          </option>
+        </ng-container>
+      </select>
+      <button [disabled]="!selectedBeverage" (click)="addOrder()" type="submit" class="btn btn-primary">Confirm</button>
+    </div>
+    <!-- </form> -->
+  </div>
+</div>

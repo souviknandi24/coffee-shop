@@ -1,0 +1,76 @@
+<div class="coffee-machine-container justify-content-center">
+  <div class="ingredients-status">
+    <h4>Ingredients Status</h4>
+    <div>
+      <span class="badge ingredient-status-indicator" [ngClass]="
+      { 'bg-danger': coffeeMachineService.ingredientsQuantity[ingredientName] <= 50,
+        'bg-warning': coffeeMachineService.ingredientsQuantity[ingredientName] <= 100 && coffeeMachineService.ingredientsQuantity[ingredientName] > 50,
+        'bg-success': coffeeMachineService.ingredientsQuantity[ingredientName] > 100 }
+      " *ngFor="let ingredientName of coffeeMachineService.ingredientsList">
+        {{ingredientName}} ({{coffeeMachineService.ingredientsQuantity[ingredientName]}})
+      </span>
+    </div>
+  </div>
+  <div class="coffee-machine">
+    <button type="button" class="refill-button btn btn-secondary"
+      (click)="coffeeMachineService.refillIngredients()">Refill</button>
+    <div class="box">
+      <div class="machine" [ngClass]="{ 'active': isCoffeeMachineRunning }">
+        <div class="top-section-upper">
+          <div class="dial">
+            <div class="dial-inner"></div>
+            <div class="indicator"></div>
+          </div>
+          <div class="left-light"></div>
+          <div class="right-shadow"></div>
+        </div>
+        <div class="button make-coffee"></div>
+        <div class="middle-section">
+          <div class="left-light"></div>
+          <div class="right-shadow"></div>
+          <div class="dispenser dispenser-left">
+            <div class="handle"></div>
+            <div class="spout">
+              <div class="left-light"></div>
+              <div class="right-shadow"></div>
+            </div>
+            <div class="left-light"></div>
+            <div class="right-shadow"></div>
+            <div class="coffee"></div>
+          </div>
+          <div class="dispenser dispenser-right">
+            <div class="handle"></div>
+            <div class="spout">
+              <div class="left-light"></div>
+              <div class="right-shadow"></div>
+            </div>
+            <div class="left-light"></div>
+            <div class="right-shadow"></div>
+            <div class="coffee"></div>
+          </div>
+          <div class="coffee-cup coffee-cup-left">
+            <div class="left-light"></div>
+            <div class="right-shadow"></div>
+            <div class="steam-left"></div>
+            <div class="steam-right"></div>
+          </div>
+          <div class="coffee-cup coffee-cup-right">
+            <div class="left-light"></div>
+            <div class="right-shadow"></div>
+            <div class="steam-left"></div>
+            <div class="steam-right"></div>
+          </div>
+        </div>
+        <div class="top-section-lower"></div>
+        <div class="base">
+          <div class="left-light"></div>
+          <div class="right-shadow"></div>
+        </div>
+        <div class="counter"></div>
+      </div>
+    </div>
+  </div>
+  <div class="coffee-status">
+    <h4>Coffee Machine Status: {{ coffeeMachineService.coffeeMachineStatus.toUpperCase() }}</h4>
+  </div>
+</div>

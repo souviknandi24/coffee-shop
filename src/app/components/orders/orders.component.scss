@@ -1,0 +1,26 @@
+.add-order {
+  .form-group {
+    display: flex;
+
+    label {
+      width: 20%;
+    }
+
+    .beverage-select {
+      width: 40%;
+      margin: 0 5%;
+    }
+
+    button {
+      width: 30%;
+    }
+  }
+}
+
+.orders-list {
+  min-height: 80px;
+  max-height: 120px;
+  overflow-y: auto;
+  padding: 5px;
+  margin-bottom: 15px;
+}

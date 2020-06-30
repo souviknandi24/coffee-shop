@@ -1,0 +1,10 @@
+<div class="card text-white mb-3" [ngClass]="{
+  'bg-success': queueStatus === QueueStatus.COMPLETED,
+  'bg-warning': queueStatus === QueueStatus.PROCESSING,
+  'bg-danger': queueStatus === QueueStatus.INQUEUE }">
+  <div class="card-header">
+    <span>#{{ order.id }}</span>&nbsp;
+    <span>{{ order.item.replace('_', ' ').toUpperCase() }}</span>&nbsp;
+    <span class="card-body">{{ order.orderPlacedAt }}</span>
+  </div>
+</div>

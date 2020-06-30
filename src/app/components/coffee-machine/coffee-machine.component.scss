@@ -1,0 +1,476 @@
+.ingredient-status-indicator {
+  margin: 10px 15px;
+  padding: 5px;
+  flex: 1;
+}
+
+.coffee-machine {
+  position: relative;
+  justify-content: center;
+  overflow: hidden;
+  align-items: center;
+  display: flex;
+  margin-top: 20px;
+
+  .refill-button {
+    position: absolute;
+    top: 0;
+    left: calc(50% - 50px);
+    width: 100px;
+    margin-top: 10px;
+  }
+
+  .box {
+    display: block;
+    width: 700px;
+    height: 500px;
+    margin: auto;
+    margin-top: 40px;
+    position: relative;
+    z-index: 10;
+  }
+
+  .top-section-upper {
+    position: absolute;
+    width: 70%;
+    height: 25%;
+    top: 5%;
+    left: 15%;
+    background: #6bd6ec;
+    border: solid 7px #004d7f;
+    border-radius: 12px 12px 40px 40px;
+    overflow: hidden;
+    z-index: 10;
+  }
+
+  .left-light {
+    position: absolute;
+    width: 5%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background: rgba(255, 255, 255, 0.15);
+  }
+
+  .right-shadow {
+    position: absolute;
+    width: 5%;
+    height: 100%;
+    right: 0;
+    top: 0;
+    background: rgba(0, 0, 0, 0.1);
+  }
+
+  .dial {
+    position: absolute;
+    width: 12%;
+    height: 48%;
+    left: 44%;
+    top: 25%;
+    border-radius: 50%;
+    background: #004d7f;
+  }
+
+  .dial-inner {
+    background: #fff;
+    border-radius: 50%;
+    position: absolute;
+    left: 10%;
+    top: 10%;
+    width: 80%;
+    height: 80%;
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 75%, 0 75%);
+    clip-path: polygon(0 0, 100% 0, 100% 75%, 0 75%);
+  }
+
+  .indicator {
+    position: absolute;
+    width: 20%;
+    height: 20%;
+    background: #004d7f;
+    border-radius: 50%;
+    left: 40%;
+    top: 40%;
+    transform: rotate(-50deg);
+    transition: transform 0.3s ease-out;
+  }
+
+  .indicator::after {
+    content: '';
+    position: absolute;
+    background: #004d7f;
+    height: 180%;
+    width: 50%;
+    border-radius: 50px;
+    bottom: 20%;
+    left: 25%;
+  }
+
+  .button {
+    position: absolute;
+    height: 10%;
+    width: 5%;
+    background: pink;
+    right: 10%;
+    top: 11%;
+    z-index: 8;
+    background: #f65e12;
+    border: solid 7px #004d7f;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all ease 0.3s;
+  }
+
+  .top-section-lower {
+    position: absolute;
+    width: 60%;
+    height: 5%;
+    background: #cceef6;
+    border: solid 7px #004d7f;
+    border-radius: 0 0 20px 20px;
+    z-index: 8;
+    top: 30%;
+    left: 20%;
+  }
+
+  .middle-section {
+    position: absolute;
+    width: 50%;
+    height: 41%;
+    background: #00b0d3;
+    border: solid 7px #004d7f;
+    z-index: 6;
+    left: 25%;
+    top: 35%;
+  }
+
+  .dispenser {
+    position: absolute;
+    left: 10%;
+    width: 20%;
+    height: 25%;
+    background: #cceef6;
+    border: solid 7px #004d7f;
+    border-radius: 0 0 20px 20px;
+  }
+
+  .dispenser::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 15%;
+    border-bottom: solid 7px #004d7f;
+    background: #00b0d3;
+  }
+
+  .dispenser .handle {
+    position: absolute;
+    width: 100%;
+    height: 20%;
+    background: #00b0d3;
+    border: solid 7px #004d7f;
+    z-index: 10;
+    right: 100%;
+    top: 20%;
+    border-radius: 50px 0 0 50px;
+    z-index: 1px;
+  }
+
+  .dispenser .left-light,
+  .dispenser .right-shadow {
+    width: 20%;
+  }
+
+  .dispenser .left-light {
+    border-radius: 0 0 0 12px;
+    background: rgba(255, 255, 255, 0.4);
+  }
+
+  .dispenser .right-shadow {
+    border-radius: 0 0 12px 0;
+  }
+
+  .spout {
+    position: absolute;
+    width: 50%;
+    left: 14%;
+    height: 10%;
+    top: 100%;
+    background: pink;
+    background: #cceef6;
+    border: solid 7px #004d7f;
+    border-radius: 0 0 5px 5px;
+    z-index: 10;
+  }
+
+  .spout::after {
+    content: '';
+    position: absolute;
+    width: 20%;
+    height: 100%;
+    top: 100%;
+    left: 20%;
+    background: #cceef6;
+    border: solid 7px #004d7f;
+    border-radius: 0 0 5px 5px;
+    z-index: 10;
+  }
+
+  .dispenser-right {
+    right: 10%;
+    left: auto;
+  }
+
+  .dispenser-right .handle {
+    right: auto;
+    left: 100%;
+    border-radius: 0 50px 50px 0;
+  }
+
+  .coffee-cup {
+    position: absolute;
+    left: 10%;
+    width: 20%;
+    height: 35%;
+    bottom: 10%;
+    background: #ffa315;
+    border: solid 7px #004d7f;
+    border-radius: 10px 10px 20px 20px;
+    z-index: 10;
+  }
+
+  .coffee-cup::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 20%;
+    top: 0;
+    left: 0;
+    background: #f65e12;
+    border-bottom: solid 7px #004d7f;
+  }
+
+  .coffee-cup::after {
+    content: '';
+    position: absolute;
+    right: -40%;
+    width: 20%;
+    height: 45%;
+    top: 20%;
+    border: solid 7px #004d7f;
+    border-radius: 0 10px 10px 0;
+  }
+
+  .coffee-cup .left-light,
+  .coffee-cup .right-shadow {
+    width: 15%;
+  }
+
+  .coffee-cup .left-light {
+    border-radius: 0 0 0 12px;
+  }
+
+  .coffee-cup .right-shadow {
+    border-radius: 0 0 12px 0;
+  }
+
+  .coffee-cup.coffee-cup-right {
+    left: auto;
+    right: 10%;
+  }
+
+  .steam-left {
+    width: 11%;
+    height: 30%;
+    position: absolute;
+    left: 15%;
+    background: #004d7f;
+    top: -45%;
+    border-radius: 50px;
+    opacity: 0;
+    transition: all ease 0.3s;
+    animation-delay: 0.6s !important;
+  }
+
+  .steam-right {
+    width: 10%;
+    height: 30%;
+    position: absolute;
+    right: 20%;
+    background: #004d7f;
+    top: -35%;
+    border-radius: 50px;
+    transition: all ease 0.3s;
+    opacity: 0;
+    animation-delay: 0.8s !important;
+  }
+
+  .base {
+    position: absolute;
+    width: 70%;
+    height: 20%;
+    bottom: 10%;
+    left: 15%;
+    background: #6bd6ec;
+    border: solid 7px #004d7f;
+    border-radius: 12px 12px 0px 0px;
+    overflow: hidden;
+    z-index: 10;
+  }
+
+  .base::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 10%;
+    top: 0;
+    left: 0;
+    background: #cceef6;
+    border-bottom: solid 7px #004d7f;
+  }
+
+  .counter {
+    position: absolute;
+    width: 100%;
+    height: 0;
+    bottom: 10%;
+    left: 0;
+    background: #6bd6ec;
+    border-bottom: solid 7px #004d7f;
+    border-radius: 50px;
+    overflow: hidden;
+    z-index: 10;
+  }
+
+  .coffee {
+    width: 11%;
+    position: absolute;
+    left: 44%;
+    background: #004d7f;
+    top: 100%;
+    bottom: 0%;
+    border-radius: 50px;
+    z-index: 1;
+    transition: all ease 0.3s;
+  }
+
+  .button-02 {
+    background: #f65e12;
+    display: inline-block;
+    padding: 18px 35px;
+    text-transform: uppercase;
+    color: #fff;
+    font-size: 13px;
+    letter-spacing: 2px;
+    font-weight: 700;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+
+  .inspiration {
+    font-size: 10px;
+    color: #ccc;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+  }
+
+  /* --- ANIMATION -- */
+
+  .machine.active .button {
+    right: 11%;
+  }
+
+  .machine.active .indicator {
+    animation: heatUp 15.3s ease infinite forwards;
+  }
+
+  .machine.active .steam-left,
+  .machine.active .steam-right {
+    animation: steam 5s linear infinite forwards;
+  }
+
+  .machine.active .coffee {
+    animation: pourCoffee 15s linear infinite forwards;
+  }
+
+  .machine.active .make-coffee {
+    cursor: not-allowed;
+  }
+}
+
+.coffee-status,
+.ingredients-status {
+  text-align: center;
+}
+
+/* --- KEYFRAMES --- */
+
+@keyframes heatUp {
+  0% {
+    transform: rotate(-50deg);
+  }
+
+  10% {
+    transform: rotate(50deg);
+  }
+
+  30% {
+    transform: rotate(20deg);
+  }
+
+  40% {
+    transform: rotate(50deg);
+  }
+
+  60% {
+    transform: rotate(10deg);
+  }
+
+  70% {
+    transform: rotate(50deg);
+  }
+
+  100% {
+    transform: rotate(-50deg);
+  }
+}
+
+@keyframes steam {
+  0%,
+  10% {
+    opacity: 0;
+    transform: translateY(0);
+  }
+
+  50% {
+    opacity: 1;
+    transform: translateY(-10px);
+  }
+
+  90%,
+  100% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes pourCoffee {
+  0% {
+    top: 100%;
+    bottom: 0%;
+  }
+
+  6%,
+  94% {
+    top: 100%;
+    bottom: -200%;
+  }
+
+  100% {
+    top: 300%;
+    bottom: -200%;
+  }
+}
